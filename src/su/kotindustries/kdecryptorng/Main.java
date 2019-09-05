@@ -14,7 +14,7 @@ public class Main {
         IO io = new IO();
         MrBrute mb = new MrBrute();
 
-        sDictionary = "rus.txt";
+        sDictionary = "default.dic";
         if (args.length > 1)
             if (io.dir(args[0]))
                 sDictionary = args[0];

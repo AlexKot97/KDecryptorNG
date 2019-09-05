@@ -8,9 +8,7 @@
   <component name="ChangeListManager">
     <list default="true" id="31ff0e57-ea58-4288-b68f-6ad5ebc2fcb6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/KDecryptorNG/su/kotindustries/kdecryptorng/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/KDecryptorNG/su/kotindustries/kdecryptorng/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/su/kotindustries/kdecryptorng/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/su/kotindustries/kdecryptorng/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/su/kotindustries/kdecryptorng/MrBrute.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/su/kotindustries/kdecryptorng/MrBrute.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -94,7 +92,14 @@
       <option name="project" value="LOCAL" />
       <updated>1567699976867</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary=";-)">
+      <created>1567700997360</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1567700997360</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
