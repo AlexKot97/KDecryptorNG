@@ -19,14 +19,13 @@ public class Main {
             if (io.dir(args[0]))
                 sDictionary = args[0];
         io.print("Dictionary path: " + sDictionary);
-        asDictionary = io.loadDictionaryT(sDictionary);
+        asDictionary = io.loadDictionary(sDictionary);
         io.print("Enter a target mask: ");
         sTarget = io.readLine();
 
         io.println();
         mb.setDictionary(asDictionary);
         mb.setTarget(sTarget);
-        mb.initMatch();
 
         for (int j = 0; j < mb.getWordsCount(); j++)
             io.print(mb.checkWord(j));

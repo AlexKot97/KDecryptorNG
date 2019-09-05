@@ -7,14 +7,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="31ff0e57-ea58-4288-b68f-6ad5ebc2fcb6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/KDecryptorNG_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/su/kotindustries/kdecryptorng/IO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/su/kotindustries/kdecryptorng/MrBrute.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/KDecryptorNG/su/kotindustries/kdecryptorng/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/KDecryptorNG/su/kotindustries/kdecryptorng/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/su/kotindustries/kdecryptorng/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/su/kotindustries/kdecryptorng/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/su/kotindustries/kdecryptorng/MrBrute.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/su/kotindustries/kdecryptorng/MrBrute.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -91,6 +87,14 @@
       <option name="presentableId" value="Default" />
       <updated>1567093244084</updated>
     </task>
+    <task id="LOCAL-00001" summary=";-)">
+      <created>1567699976867</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1567699976867</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -105,5 +109,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value=";-)" />
+    <option name="LAST_COMMIT_MESSAGE" value=";-)" />
   </component>
 </project>

@@ -7,22 +7,28 @@ class MrBrute {
     private List<String> lsMatch;
     private String[] asDictionary;
     private String sTargetSignature;
+    private int iDictionarySize;
+
+    MrBrute() {
+        lsMatch = new ArrayList<>();
+    }
 
     void setDictionary(String[] asDictionary) {
         this.asDictionary = asDictionary;
+        this.iDictionarySize = asDictionary.length;
     }
 
     void setTarget(String sWord) {
         sTargetSignature = calcSignature(sWord);
     }
 
-    void initMatch() {
-        lsMatch = new ArrayList<>();
-    }
-
     String checkWord(int iWord) {
+        int iProgress = Math.round(iWord * 100 / iDictionarySize);
         String sWordSignature = calcSignature(asDictionary[iWord]);
-        String sReport = "Id: " + iWord + "  Target signature: " + sTargetSignature + " Suspect: " + asDictionary[iWord];
+        String sReport = "Progress: " + iProgress;
+        sReport += "% Id: " + iWord + "  Target signature: ";
+        sReport += sTargetSignature + " Suspect: " + asDictionary[iWord];
+
         if (sWordSignature.compareTo(sTargetSignature) == 0)
             lsMatch.add(sReport);
         return sReport;
@@ -44,12 +50,10 @@ class MrBrute {
     }
 
     int getWordsCount() {
-        return asDictionary.length;
+        return iDictionarySize;
     }
 
     String getTargetSignature() {
         return sTargetSignature;
     }
-
-
 }
