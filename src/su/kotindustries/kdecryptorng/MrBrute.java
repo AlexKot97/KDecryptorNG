@@ -73,6 +73,17 @@ class MrBrute {
         aasMatrix = laasMatrix.toArray(new String[0][0]);
     }
 
+    String decryptWord(String sWord, String[] sDict){
+        String sResult = "";
+        for (int i = 0; i<sWord.length(); i++)
+            for (String letter : sDict){
+                if (sWord.substring(i, i+1).compareTo(letter.substring(1,2))==0){
+                    sResult+=(letter.substring(0, 1));
+                }
+            }
+        return sResult;
+    }
+
     boolean isMatrixCollision(String[] asMatrixA, String[] asMatrixB) {
         boolean bCollision = false;
         for (String A : asMatrixA)

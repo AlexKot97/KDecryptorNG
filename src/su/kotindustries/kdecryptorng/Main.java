@@ -21,11 +21,11 @@ public class Main {
         mb.setDictionary(asDictionary);
 
         io.println("Enter a mask 1: ");
-        asMasks[0] ="by;tythyjv";// io.readLine();
+        asMasks[0] = io.readLine();
         mb.addMask(0, asMasks[0]);
 
         io.println("Enter a mask 2: ");
-        asMasks[1] = "[hfybkbotv";// io.readLine();
+        asMasks[1] = io.readLine();
         mb.addMask(1, asMasks[1]);
 
         io.println();
@@ -34,10 +34,6 @@ public class Main {
             mb.checkWord(j);
         }
         io.println(" Done");
-
-        mb.generateMatrixArray(0, 1);
-        String[][] lsRes1 = mb.getMatrixs();
-        //String[][] lsRes2 = mb.getResult(1);
 
         int iMatchCount1 = mb.getMatchCount(0);
         int iMatchCount2 = mb.getMatchCount(1);
@@ -54,8 +50,13 @@ public class Main {
         io.println("              MATCHES            ");
 
         io.println("      Mask1: " + asMasks[0]+"      Mask2: "+asMasks[1]);
-        io.println("Signature 1: " + sSign1+    " Signature2: "+sSign2);
-        for (String[] sLine : lsRes1) {
+        io.println(" Signature1: " + sSign1+    " Signature2: "+sSign2);
+
+        mb.generateMatrixArray(0, 1);
+        String[][] lsResult = mb.getMatrixs();
+
+        for (String[] sLine : lsResult) {
+            io.print("      Word1: " + mb.decryptWord(asMasks[0], sLine)+    "      Word2: "+mb.decryptWord(asMasks[1], sLine));
             io.print(" [");
             for (String sPara : sLine)
                 io.print(" " + sPara);
@@ -63,14 +64,8 @@ public class Main {
         }
         io.println("all: " + mb.combinatesAll + " normal: " + mb.combinatesNormal);
         io.println();
-/*        io.println("Signature 2: " + sSign2);
 
-        for (String[] sLine : lsRes2) {
-            io.print(" [");
-            for (String sPara : sLine)
-                io.print(" "+sPara);
-            io.print("]");
-        }*/
         io.println();
     }
+
 }
