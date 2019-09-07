@@ -9,9 +9,12 @@ import java.nio.file.Path;
 import java.util.List;
 
 class IO {
-
-    void print(String sString) {
+    void println(String sString) {
         System.out.println(sString);
+    }
+
+    void print(String sString){
+        System.out.print(sString);
     }
 
     String readLine() {
@@ -51,6 +54,6 @@ class IO {
     }
 
     void println() {
-        print("================================================================");
+        println("================================================================");
     }
 }

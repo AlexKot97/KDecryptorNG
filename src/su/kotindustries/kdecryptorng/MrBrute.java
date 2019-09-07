@@ -21,16 +21,10 @@ class MrBrute {
         amMasks[iIndex] = new Mask(sWord);
     }
 
-    String checkWord(int iWord) {
-        int iProgress = Math.round(iWord * 100 / iDictionarySize);
-        String sReport = "Progress: " + iProgress;
-        sReport += "% Id: " + iWord + "  Target signature: ";
-        sReport += " Suspect: " + asDictionary[iWord];
-
+    void checkWord(int iWord) {
+        //int iProgress = Math.round(iWord * 100 / iDictionarySize);
         amMasks[0].checkMatch(asDictionary[iWord]);
         amMasks[1].checkMatch(asDictionary[iWord]);
-
-        return sReport;
     }
 
     List<String> getResult(Integer iIndex) {
@@ -45,7 +39,7 @@ class MrBrute {
         return iDictionarySize;
     }
 
-    class Mask {
+    static class Mask {
         private String sMask;
         private String sSignature;
         private List<String> lsMatch;
