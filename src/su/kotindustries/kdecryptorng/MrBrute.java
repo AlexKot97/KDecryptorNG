@@ -42,24 +42,21 @@ class MrBrute {
         return amMasks[iIndex].getSignature();
     }
 
+
     static class Mask {
         private String sMask;
         private String sSignature;
-        //private List<String> lsMatch;
         private List<String[]> lasMatrix;
 
         Mask(String sWord) {
             sMask = sWord;
             this.sSignature = calcSignature(sWord);
-            //lsMatch = new ArrayList<>();
             lasMatrix = new ArrayList<>();
         }
 
         void checkMatch(String sWord) {
             String sWordSignature = calcSignature(sWord);
             if (sWordSignature.compareTo(sSignature) == 0)
-                //lsMatch.add("Mask: " + sMask + " Signature: " + sSignature + " Word: " + sWord);
-                //lsMatch.add(sMask + "|" + sWord);
                 lasMatrix.add(calcMatrix(sWord));
         }
 
@@ -92,13 +89,6 @@ class MrBrute {
         String getSignature() {
             return sSignature;
         }
-/*
-        int getMatchCount() {
-            return lsMatch.size();
-        }
-        List<String> getMatches() {
-            return lsMatch;
-        }
-*/
+
     }
 }
