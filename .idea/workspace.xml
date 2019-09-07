@@ -7,6 +7,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="31ff0e57-ea58-4288-b68f-6ad5ebc2fcb6" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/KDecryptorNG.jar" beforeDir="false" afterPath="$PROJECT_DIR$/KDecryptorNG.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/KDecryptorNG/su/kotindustries/kdecryptorng/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/KDecryptorNG/su/kotindustries/kdecryptorng/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/su/kotindustries/kdecryptorng/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/su/kotindustries/kdecryptorng/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/su/kotindustries/kdecryptorng/MrBrute.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/su/kotindustries/kdecryptorng/MrBrute.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -140,7 +144,14 @@
       <option name="project" value="LOCAL" />
       <updated>1567859486536</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="TranslateMatrix finish">
+      <created>1567859780510</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1567859780510</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -162,6 +173,7 @@
     <MESSAGE value="Add a class Mask, method Signature packed in" />
     <MESSAGE value="Normalized frontend" />
     <MESSAGE value="Add TranslateMatrix fetch" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add TranslateMatrix fetch" />
+    <MESSAGE value="TranslateMatrix finish" />
+    <option name="LAST_COMMIT_MESSAGE" value="TranslateMatrix finish" />
   </component>
 </project>

@@ -1,11 +1,17 @@
 package su.kotindustries.kdecryptorng;
 
+import java.lang.reflect.Array;
 import java.util.*;
 
 class MrBrute {
     private Mask[] amMasks;
     private String[] asDictionary;
     private int iDictionarySize;
+
+    private String[][] aasMatrix;
+    private String[] asResultVariants;
+
+    public int combinatesAll, combinatesNormal;
 
     MrBrute() {
         amMasks = new Mask[2];
@@ -30,6 +36,10 @@ class MrBrute {
         return amMasks[iIndex].getMatrixArray();
     }
 
+    String[][] getMatrixs() {
+        return aasMatrix;
+    }
+
     int getMatchCount(Integer iIndex) {
         return amMasks[iIndex].getMatrixCount();
     }
@@ -42,6 +52,55 @@ class MrBrute {
         return amMasks[iIndex].getSignature();
     }
 
+    void generateMatrixArray(int iIndexA, int iIndexB) {
+        List<String[]> laasMatrix = new ArrayList<>();
+
+        String[][] asMatrixsA = amMasks[iIndexA].getMatrixArray();
+        String[][] asMatrixsB = amMasks[iIndexB].getMatrixArray();
+        combinatesAll = 0;
+        combinatesNormal = 0;
+        for (String[] asMatrixA : asMatrixsA)
+            for (String[] asMatrixB : asMatrixsB) {
+                if (!isMatrixCollision(asMatrixA, asMatrixB)){
+                    laasMatrix.add(matrixConcat(asMatrixA, asMatrixB));
+                    combinatesNormal++;
+                }
+
+                combinatesAll++;
+            }
+
+
+        aasMatrix = laasMatrix.toArray(new String[0][0]);
+    }
+
+    boolean isMatrixCollision(String[] asMatrixA, String[] asMatrixB) {
+        boolean bCollision = false;
+        for (String A : asMatrixA)
+            for (String B : asMatrixB) {
+                String a1 = A.substring(0, 1);
+                String a2 = A.substring(1, 2);
+                String b1 = B.substring(0, 1);
+                String b2 = B.substring(1, 2);
+
+                boolean B1 = (a1.compareTo(b1) == 0);
+                boolean B2 = (a2.compareTo(b2) == 0);
+
+                if (((B1) && (!B2)) || ((!B1) && (B2))) {
+                    bCollision = true;
+                }
+            }
+        return bCollision;
+    }
+
+    private String[] matrixConcat(String[] asMatrixA, String[] asMatrixB) {
+        int iLenA = asMatrixA.length;
+        int iLenB = asMatrixB.length;
+        String[] asMatrixR = new String[iLenA + iLenB];
+        System.arraycopy(asMatrixA, 0, asMatrixR, 0, iLenA);
+        System.arraycopy(asMatrixB, 0, asMatrixR, iLenA, iLenB);
+        Set<String> sRes = new LinkedHashSet<>(Arrays.asList(asMatrixR));
+        return sRes.toArray(new String[0]);
+    }
 
     static class Mask {
         private String sMask;
