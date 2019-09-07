@@ -4,13 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 class MrBrute {
-    private List<String> lsMatch;
+    private Mask[] amMasks;
     private String[] asDictionary;
-    private String sTargetSignature;
     private int iDictionarySize;
 
     MrBrute() {
-        lsMatch = new ArrayList<>();
+        amMasks = new Mask[2];
     }
 
     void setDictionary(String[] asDictionary) {
@@ -18,42 +17,65 @@ class MrBrute {
         this.iDictionarySize = asDictionary.length;
     }
 
-    void setTarget(String sWord) {
-        sTargetSignature = calcSignature(sWord);
+    void addMask(Integer iIndex, String sWord) {
+        amMasks[iIndex] = new Mask(sWord);
     }
 
     String checkWord(int iWord) {
         int iProgress = Math.round(iWord * 100 / iDictionarySize);
-        String sWordSignature = calcSignature(asDictionary[iWord]);
         String sReport = "Progress: " + iProgress;
         sReport += "% Id: " + iWord + "  Target signature: ";
-        sReport += sTargetSignature + " Suspect: " + asDictionary[iWord];
+        sReport += " Suspect: " + asDictionary[iWord];
 
-        if (sWordSignature.compareTo(sTargetSignature) == 0)
-            lsMatch.add(sReport);
+        amMasks[0].checkMatch(asDictionary[iWord]);
+        amMasks[1].checkMatch(asDictionary[iWord]);
+
         return sReport;
     }
 
-    private String calcSignature(String sWord) {
-        StringBuilder sResult = new StringBuilder();
-        for (int j = 0; j < sWord.length(); j++)
-            sResult.append(sWord.indexOf(sWord.substring(j, j + 1)));
-        return sResult.toString();
+    List<String> getResult(Integer iIndex) {
+        return amMasks[iIndex].getMatches();
     }
 
-    List<String> getResult() {
-        return lsMatch;
+    int getMatchCount(Integer iIndex) {
+        return amMasks[iIndex].getMatchCount();
     }
 
-    int getMatchCount() {
-        return lsMatch.size();
-    }
-
-    int getWordsCount() {
+    int getDictionarySize() {
         return iDictionarySize;
     }
 
-    String getTargetSignature() {
-        return sTargetSignature;
+    class Mask {
+        private String sMask;
+        private String sSignature;
+        private List<String> lsMatch;
+
+        Mask(String sWord) {
+            sMask = sWord;
+            this.sSignature = calcSignature(sWord);
+            lsMatch = new ArrayList<>();
+        }
+
+        void checkMatch(String sWord) {
+            String sWordSignature = calcSignature(sWord);
+            if (sWordSignature.compareTo(sSignature) == 0)
+                lsMatch.add("Mask: " + sMask + " Signature: " + sSignature + " Word: " + sWord);
+        }
+
+        private String calcSignature(String sWord) {
+            StringBuilder sResult = new StringBuilder();
+            for (int j = 0; j < sWord.length(); j++)
+                sResult.append(sWord.indexOf(sWord.substring(j, j + 1)));
+            return sResult.toString();
+        }
+
+        List<String> getMatches(){
+            return lsMatch;
+        }
+
+        int getMatchCount(){
+            return lsMatch.size();
+        }
+
     }
 }

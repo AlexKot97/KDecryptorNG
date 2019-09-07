@@ -7,9 +7,10 @@ public class Main {
     public static void main(String[] args) {
         String[] asDictionary;
         String sDictionary;
-        String sTarget;
-        String sTargetSignature;
-        List<String> lsRes;
+        String[] asMasks = new String[2];
+
+        List<String> lsRes1, lsRes2;
+
 
         IO io = new IO();
         MrBrute mb = new MrBrute();
@@ -20,27 +21,37 @@ public class Main {
                 sDictionary = args[0];
         io.print("Dictionary path: " + sDictionary);
         asDictionary = io.loadDictionary(sDictionary);
-        io.print("Enter a target mask: ");
-        sTarget = io.readLine();
+        mb.setDictionary(asDictionary);
+
+        io.print("Enter a mask 1: ");
+        asMasks[0] = io.readLine();
+        mb.addMask(0, asMasks[0]);
+
+        io.print("Enter a mask 2: ");
+        asMasks[1] = io.readLine();
+        mb.addMask(1, asMasks[1]);
 
         io.println();
-        mb.setDictionary(asDictionary);
-        mb.setTarget(sTarget);
 
-        for (int j = 0; j < mb.getWordsCount(); j++)
+        for (int j = 0; j < mb.getDictionarySize(); j++)
             io.print(mb.checkWord(j));
 
-        lsRes = mb.getResult();
-        int iMatchCount = mb.getMatchCount();
-        int iWordsCount = mb.getWordsCount();
-        sTargetSignature = mb.getTargetSignature();
+        lsRes1 = mb.getResult(0);
+        lsRes2 = mb.getResult(1);
+
+        int iMatchCount1 = mb.getMatchCount(0);
+        int iMatchCount2 = mb.getMatchCount(1);
+        int iWordsCount = mb.getDictionarySize();
         io.println();
         io.print("            STATISTICS           ");
-        io.print("Dictionary power, words: " + iWordsCount + ", matches found: " + iMatchCount + ".");
-        io.print("Target & Signature: " + sTarget + " : " + sTargetSignature);
+        io.print("Dictionary power, words: " + iWordsCount + ", matches found: " + iMatchCount1 + ", " + iMatchCount2);
         io.println();
         io.print("              MATCHES            ");
-        for (String sLine : lsRes) {
+        for (String sLine : lsRes1) {
+            io.print(sLine);
+        }
+        io.println();
+        for (String sLine : lsRes2) {
             io.print(sLine);
         }
         io.println();
