@@ -7,11 +7,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="31ff0e57-ea58-4288-b68f-6ad5ebc2fcb6" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/KDecryptorNG.jar" beforeDir="false" afterPath="$PROJECT_DIR$/KDecryptorNG.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/KDecryptorNG/su/kotindustries/kdecryptorng/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/KDecryptorNG/su/kotindustries/kdecryptorng/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run.bat" beforeDir="false" afterPath="$PROJECT_DIR$/run.bat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/su/kotindustries/kdecryptorng/IO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/su/kotindustries/kdecryptorng/IO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/su/kotindustries/kdecryptorng/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/su/kotindustries/kdecryptorng/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/su/kotindustries/kdecryptorng/MrBrute.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/su/kotindustries/kdecryptorng/MrBrute.java" afterDir="false" />
     </list>
@@ -125,7 +122,14 @@
       <option name="project" value="LOCAL" />
       <updated>1567851543817</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Normalized frontend">
+      <created>1567853013781</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1567853013781</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -145,6 +149,7 @@
     <MESSAGE value=";-)" />
     <MESSAGE value="Stable search for dictionary. Version 1.0" />
     <MESSAGE value="Add a class Mask, method Signature packed in" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add a class Mask, method Signature packed in" />
+    <MESSAGE value="Normalized frontend" />
+    <option name="LAST_COMMIT_MESSAGE" value="Normalized frontend" />
   </component>
 </project>

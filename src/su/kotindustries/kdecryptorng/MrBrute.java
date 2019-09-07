@@ -53,7 +53,8 @@ class MrBrute {
         void checkMatch(String sWord) {
             String sWordSignature = calcSignature(sWord);
             if (sWordSignature.compareTo(sSignature) == 0)
-                lsMatch.add("Mask: " + sMask + " Signature: " + sSignature + " Word: " + sWord);
+                //lsMatch.add("Mask: " + sMask + " Signature: " + sSignature + " Word: " + sWord);
+                lsMatch.add(sWord);
         }
 
         private String calcSignature(String sWord) {
@@ -66,6 +67,8 @@ class MrBrute {
         List<String> getMatches(){
             return lsMatch;
         }
+
+
 
         int getMatchCount(){
             return lsMatch.size();

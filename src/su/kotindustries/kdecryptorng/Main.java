@@ -51,11 +51,11 @@ public class Main {
         io.println("              MATCHES            ");
 
         for (String sLine : lsRes1) {
-            io.println(sLine);
+            io.print(sLine + " ");
         }
         io.println();
         for (String sLine : lsRes2) {
-            io.println(sLine);
+            io.print(sLine + " ");
         }
         io.println();
     }
