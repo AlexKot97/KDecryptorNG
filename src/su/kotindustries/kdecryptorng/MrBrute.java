@@ -1,6 +1,5 @@
 package su.kotindustries.kdecryptorng;
 
-import java.lang.reflect.Array;
 import java.util.*;
 
 class MrBrute {
@@ -9,9 +8,8 @@ class MrBrute {
     private int iDictionarySize;
 
     private String[][] aasMatrix;
-    private String[] asResultVariants;
 
-    public int combinatesAll, combinatesNormal;
+    int combinatesAll, combinatesNormal;
 
     MrBrute() {
         amMasks = new Mask[2];
@@ -27,16 +25,11 @@ class MrBrute {
     }
 
     void checkWord(int iWord) {
-        //int iProgress = Math.round(iWord * 100 / iDictionarySize);
         amMasks[0].checkMatch(asDictionary[iWord]);
         amMasks[1].checkMatch(asDictionary[iWord]);
     }
 
-    String[][] getResult(Integer iIndex) {
-        return amMasks[iIndex].getMatrixArray();
-    }
-
-    String[][] getMatrixs() {
+    String[][] getMatrixArray() {
         return aasMatrix;
     }
 
@@ -52,39 +45,36 @@ class MrBrute {
         return amMasks[iIndex].getSignature();
     }
 
-    void generateMatrixArray(int iIndexA, int iIndexB) {
-        List<String[]> laasMatrix = new ArrayList<>();
+    void generateMatrixArray() {
+        List<String[]> lasMatrix = new ArrayList<>();
 
-        String[][] asMatrixsA = amMasks[iIndexA].getMatrixArray();
-        String[][] asMatrixsB = amMasks[iIndexB].getMatrixArray();
+        String[][] asMatrixArrayA = amMasks[0].getMatrixArray();
+        String[][] asMatrixArrayB = amMasks[1].getMatrixArray();
         combinatesAll = 0;
         combinatesNormal = 0;
-        for (String[] asMatrixA : asMatrixsA)
-            for (String[] asMatrixB : asMatrixsB) {
-                if (!isMatrixCollision(asMatrixA, asMatrixB)){
-                    laasMatrix.add(matrixConcat(asMatrixA, asMatrixB));
+        for (String[] asMatrixA : asMatrixArrayA)
+            for (String[] asMatrixB : asMatrixArrayB) {
+                if (!matrixIsCollision(asMatrixA, asMatrixB)) {
+                    lasMatrix.add(matrixConcat(asMatrixA, asMatrixB));
                     combinatesNormal++;
                 }
-
                 combinatesAll++;
             }
-
-
-        aasMatrix = laasMatrix.toArray(new String[0][0]);
+        aasMatrix = lasMatrix.toArray(new String[0][0]);
     }
 
-    String decryptWord(String sWord, String[] sDict){
-        String sResult = "";
-        for (int i = 0; i<sWord.length(); i++)
-            for (String letter : sDict){
-                if (sWord.substring(i, i+1).compareTo(letter.substring(1,2))==0){
-                    sResult+=(letter.substring(0, 1));
+    String decryptWord(String sWord, String[] asDictionary) {
+        StringBuilder sResult = new StringBuilder();
+        for (int i = 0; i < sWord.length(); i++)
+            for (String sLetter : asDictionary) {
+                if (sWord.substring(i, i + 1).compareTo(sLetter.substring(1, 2)) == 0) {
+                    sResult.append(sLetter, 0, 1);
                 }
             }
-        return sResult;
+        return sResult.toString();
     }
 
-    boolean isMatrixCollision(String[] asMatrixA, String[] asMatrixB) {
+    private boolean matrixIsCollision(String[] asMatrixA, String[] asMatrixB) {
         boolean bCollision = false;
         for (String A : asMatrixA)
             for (String B : asMatrixB) {
@@ -98,6 +88,7 @@ class MrBrute {
 
                 if (((B1) && (!B2)) || ((!B1) && (B2))) {
                     bCollision = true;
+                    break;
                 }
             }
         return bCollision;

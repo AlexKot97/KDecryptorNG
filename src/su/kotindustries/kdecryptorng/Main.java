@@ -1,7 +1,5 @@
 package su.kotindustries.kdecryptorng;
 
-import java.util.*;
-
 public class Main {
 
     public static void main(String[] args) {
@@ -52,19 +50,17 @@ public class Main {
         io.println("      Mask1: " + asMasks[0]+"      Mask2: "+asMasks[1]);
         io.println(" Signature1: " + sSign1+    " Signature2: "+sSign2);
 
-        mb.generateMatrixArray(0, 1);
-        String[][] lsResult = mb.getMatrixs();
+        mb.generateMatrixArray();
+        String[][] lsResult = mb.getMatrixArray();
 
         for (String[] sLine : lsResult) {
             io.print("      Word1: " + mb.decryptWord(asMasks[0], sLine)+    "      Word2: "+mb.decryptWord(asMasks[1], sLine));
-            io.print(" [");
-            for (String sPara : sLine)
+            io.println("");
+            /*for (String sPara : sLine)
                 io.print(" " + sPara);
-            io.println("]");
+            io.println("]");*/
         }
         io.println("all: " + mb.combinatesAll + " normal: " + mb.combinatesNormal);
-        io.println();
-
         io.println();
     }
 
