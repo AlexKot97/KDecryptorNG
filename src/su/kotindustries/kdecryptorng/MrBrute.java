@@ -9,19 +9,15 @@ class MrBrute {
 
     private String[][] aasMatrix;
 
-    int combinatesAll, combinatesNormal;
+    private int iCombinationsCountTotal, iCombinationsCountMatch;
 
-    MrBrute() {
-        amMasks = new Mask[2];
-    }
-
-    void setDictionary(String[] asDictionary) {
+    MrBrute(String[] asMasks, String[] asDictionary) {
+        amMasks = new Mask[asMasks.length];
+        int j = 0;
+        for (String sMask : asMasks)
+            amMasks[j++] = new Mask(sMask);
         this.asDictionary = asDictionary;
         this.iDictionarySize = asDictionary.length;
-    }
-
-    void addMask(Integer iIndex, String sWord) {
-        amMasks[iIndex] = new Mask(sWord);
     }
 
     void checkWord(int iWord) {
@@ -50,15 +46,15 @@ class MrBrute {
 
         String[][] asMatrixArrayA = amMasks[0].getMatrixArray();
         String[][] asMatrixArrayB = amMasks[1].getMatrixArray();
-        combinatesAll = 0;
-        combinatesNormal = 0;
+        iCombinationsCountTotal = 0;
+        iCombinationsCountMatch = 0;
         for (String[] asMatrixA : asMatrixArrayA)
             for (String[] asMatrixB : asMatrixArrayB) {
                 if (!matrixIsCollision(asMatrixA, asMatrixB)) {
                     lasMatrix.add(matrixConcat(asMatrixA, asMatrixB));
-                    combinatesNormal++;
+                    iCombinationsCountTotal++;
                 }
-                combinatesAll++;
+                iCombinationsCountMatch++;
             }
         aasMatrix = lasMatrix.toArray(new String[0][0]);
     }
@@ -102,6 +98,14 @@ class MrBrute {
         System.arraycopy(asMatrixB, 0, asMatrixR, iLenA, iLenB);
         Set<String> sRes = new LinkedHashSet<>(Arrays.asList(asMatrixR));
         return sRes.toArray(new String[0]);
+    }
+
+    int getCombinationsCountTotal() {
+        return iCombinationsCountTotal;
+    }
+
+    int getCombinationsCountMatch() {
+        return iCombinationsCountMatch;
     }
 
     static class Mask {
